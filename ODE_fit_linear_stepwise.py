@@ -1,0 +1,23 @@
+# Model info
+model_name = "1-2-4-6 even order oligomerization model with equilibrium constants and assume kn is the same"
+kinetic_constants = ['k1','k_1','k2','k_2','k3','k_3','k4',]
+kinetic_constants = ['k1', 'k_1', 'k2', 'k_2', 'k3', 'k_3', 'k4', 'k_4', 'k5', 'k_5', 'k6', 'k_6',
+                     'k7', 'k_7', 'k8', 'k_8', 'k9', 'k_9', 'k10', 'k_10', 'k11', 'k_11']
+def ode_model(t, M, k):
+    M1, M2, M3, M4, M5, M6, M7, M8, M9, M10, M11, M12 = M
+    k1, K1, k_assoc, K24, K46 = k
+
+  
+    dM1 = -2*k1*M1**2 + 2*k_1*M2 - k2*M1*M2 + k_2*M3
+    dM2 = k1*M1**2 - k_1*M2 - k2*M2*M1 + k_2*M3
+    dM3 = k2*M2*M1 - k_2*M3 - k3*M3*M1 + k_3*M4
+    dM4 = k3*M3*M1 - k_3*M4 - k4*M4*M1 + k_4*M5
+    dM5 = k4*M4*M1 - k_4*M5 - k5*M5*M1 + k_5*M6
+    dM6 = k5*M5*M1 - k_5*M6 - k6*M6*M1 + k_6*M7
+    dM7 = k6*M6*M1 - k_6*M7 - k7*M7*M1 + k_7*M8
+    dM8 = k7*M7*M1 - k_7*M8 - k8*M8*M1 + k_8*M9
+    dM9 = k8*M8*M1 - k_8*M9 - k9*M9*M1 + k_9*M10
+    dM10 = k9*M9*M1 - k_9*M10 - k10*M10*M1 + k_10*M11
+    dM11 = k10*M10*M1 - k_10*M11 - k11*M11*M1 + k_11*M12
+    dM12 = k11*M11*M1 - k_11*M12
+    return [dM1,dM2,dM3,dM4,dM5,dM6,dM7,dM8,dM9,dM10,dM11,dM12]
