@@ -6,13 +6,13 @@ def ode_model(t, M, k):
     (k1, k_1, k2, k_2, k3, k_3, k4, k_4, k5, k_5, k6, k_6, k7, k_7, k8, k_8) = k = k
 
   
-    dM1 = -2*k1*M1**2 + 2*k_1*M2 - k2*M1*M2 + k_2*M3
-    dM2 = k1*M1**2 - k_1*M2 - k2*M2*M1 + k_2*M3
-    dM4 = k2*M2*M1 - k_2*M3 - k3*M3*M1 + k_3*M4
-    dM6 = k3*M3*M1 - k_3*M4 - k4*M4*M1 + k_4*M5
-    dM8 = k4*M4*M1 - k_4*M5 - k5*M5*M1 + k_5*M6
-    dM10 = k5*M5*M1 - k_5*M6 - k6*M6*M1 + k_6*M7
-    dM12 = k6*M6*M1 - k_6*M7 - k7*M7*M1 + k_7*M8
-    dM14 = k7*M7*M1 - k_7*M8 - k8*M8*M1 + k_8*M9
-    dM16 = k8*M11*M1 - k_8*M12
-    return [dM1,dM2,dM3,dM4,dM5,dM6,dM7,dM8,dM9,dM10,dM11,dM12]
+    dM1 = -2*k1*M1**2 + 2*k_1*M2 
+    dM2 = k1*M1**2 - k_1*M2 - 2*k2*M2**2 + 2*k_2*M4 - k3*M4*M2 + k_3*M6
+    dM4 = 2*k2*M2**2 - k_2*M4 - k3*M4*M2 + k_3*M6
+    dM6 = k3*M4*M2 - k_3*M6
+    dM8 = 
+    dM10 = 
+    dM12 = 
+    dM14 = 
+    dM16 = 
+    return [dM1,dM2,dM4,dM6,dM8,dM10,dM12,dM14,dM16]
