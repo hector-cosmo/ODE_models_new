@@ -9,7 +9,7 @@ def ode_model(t, M, k):
     dM1 = -2*k1*M1**2 + 2*k_1*M2 - k2*M2*M1 + k_2*M3
     dM2 = k1*M1**2 - k_1*M2 - k2*M2*M1 + k_2*M3
     dM3 = k2*M2*M1 - k_2*M3 - 2*k3*M3**2 + 2*k_3*M6 - k4*M6*M3 + k_4*M9 - k5*M9*M3 + k_5*M12
-    dM6 = k3*M3**2 - k_3*M6 - k4*M6*M3 + k_4*M9 - 2*k7*M6**2 + 2*k_7*M12
+    dM6 = k3*M3**2 - k_3*M6 - k4*M6*M3 + k_4*M9 - 2*k6*M6**2 + 2*k_6*M12
     dM9 = k4*M6*M3 - k_4*M9 - k5*M9*M3 + k_5*M12
-    dM12 = k5*M9*M3 - k_5*M12 + k7*M6**2 - k_7*M12
+    dM12 = k5*M9*M3 - k_5*M12 + k6*M6**2 - k_6*M12
     return [dM1,dM2,dM3,dM6,dM9,dM12]
