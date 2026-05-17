@@ -1,5 +1,5 @@
 # Model info
-model_name = "1-2-4-..-16 Order 2 stepwise aggregation model oligomerization model with equilibrium constants and assume kn is the same"
+model_name = "1-2-4-..-16 Order 2 stepwise plus homo aggregation model oligomerization model with equilibrium constants and assume kn is the same"
 kinetic_constants = ['k1', 'k_1', 'k2', 'k_2', 'k3', 'k_3', 'k4', 'k_4', 'k5', 'k_5', 'k6', 'k_6', 'k7', 'k_7', 'k8', 'k_8, 
                      'k9', 'k_9', 'k10', 'k_10', 'k11', 'k_11']
 def ode_model(t, M, k):
@@ -9,11 +9,11 @@ def ode_model(t, M, k):
   
     dM1 = -2*k1*M1**2 + 2*k_1*M2 
     dM2 = k1*M1**2 - k_1*M2 - 2*k2*M2**2 + 2*k_2*M4 - k3*M4*M2 + k_3*M6 - k4*M6*M2 + k_4*M8 - k5*M8*M2 + k_5*M10 - k6*M10*M2 + k_6*M12 - k7*M12*M2 + k_7*M14 - k8*M14*M2 + k_8*M16
-    dM4 = 2*k2*M2**2 - k_2*M4 - k3*M4*M2 + k_3*M6
-    dM6 = k3*M4*M2 - k_3*M6 - k4*M6*M2 + k_4*M8
-    dM8 = k4*M6*M2 - k_4*M8 - k5*M8*M2 + k_5*M10
+    dM4 = k2*M2**2 - k_2*M4 - k3*M4*M2 + k_3*M6 - 2*k9*M4**2 - 2*k_9_M8
+    dM6 = k3*M4*M2 - k_3*M6 - k4*M6*M2 + k_4*M8 - 2*k10*M6**2 + 2*k_10*M12
+    dM8 = k4*M6*M2 - k_4*M8 - k5*M8*M2 + k_5*M10 + k9*M4**2 - k_9*M8 - 2*k11*M8**2 - 2*k_11*M16
     dM10 = k5*M8*M2 - k_5*M10 - k6*M10*M2 + k_6*M12
-    dM12 = k6*M10*M2 - k_6*M12 - k7*M12*M2 + k_7*M14
+    dM12 = k6*M10*M2 - k_6*M12 - k7*M12*M2 + k_7*M14 + k10*M6**2 - k_10*M12
     dM14 = k7*M12*M2 - k_7*M14 - k8*M14*M2 + k_8*M16
-    dM16 = k8*M14*M2 - k_8*M16
+    dM16 = k8*M14*M2 - k_8*M16 + k11*M8**2 - k_11*M16
     return [dM1,dM2,dM4,dM6,dM8,dM10,dM12,dM14,dM16]
